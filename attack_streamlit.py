@@ -7,9 +7,21 @@ import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['WenQuanYi Micro Hei']
 plt.rcParams['axes.unicode_minus'] = False
 
-# 全局参数部分新增初始化状态
+# 全局参数初始化
 if 'no_nightsoul_signal' not in st.session_state:
-    st.session_state.no_nightsoul_signal = 1  # 默认值设为1
+    st.session_state.update({
+        'no_nightsoul_signal': 1,
+        'max_level': 13  # 默认13级
+    })
+
+# 技能等级映射表
+LEVEL_MAP = {
+    9:  650,
+    10: 690,
+    11: 730,
+    12: 770,
+    13: 810
+}
 
 # 新增切换函数
 def toggle_signal():
@@ -45,7 +57,7 @@ def nightsoul2atk(x, d, atk):
     
     total_nightsoul = nightsoul + boost
     factor = np.where(total_nightsoul >= 42, 0.27, total_nightsoul * 0.005)
-    return np.minimum(atk * factor, 810)
+    return np.minimum(atk * factor, LEVEL_MAP[st.session_state.max_level])
 
 # 初始化session state
 def init_session():
@@ -82,6 +94,16 @@ with col1:
     
 with col2:
     st.markdown("### 参数设置")
+
+    # 新增技能等级选择
+    selected_level = st.selectbox(
+        "元素爆发等级",
+        options=list(LEVEL_MAP.keys()),
+        index=4,  # 默认选择13级
+        format_func=lambda x: f"{x}级（上限{LEVEL_MAP[x]}）",
+        key='level_selector'
+    )
+    st.session_state.max_level = selected_level
     
     # 滑块组件
     d = st.slider(
