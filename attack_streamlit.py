@@ -214,7 +214,7 @@ def reset_params():
 st.set_page_config(page_title="加攻曲线", layout="wide")
 st.title("伊安珊夜魂值加攻")
 st.markdown("**已更新四命溢出存半效果**")
-st.markdown("**form 幽夜净土**")
+st.markdown("**from 幽夜净土**")
 init_session()
 
 # 双列布局系统（3:1比例）
