@@ -213,6 +213,8 @@ def reset_params():
 # 页面基础配置
 st.set_page_config(page_title="加攻曲线", layout="wide")
 st.title("伊安珊夜魂值加攻")
+st.markdown("**已更新四命溢出存半效果**")
+st.markdown("**form 幽夜净土**")
 init_session()
 
 # 双列布局系统（3:1比例）
@@ -303,10 +305,10 @@ with col_control:
     # 操作按钮系统
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("重置参数\n（D为3，A为3000）"):
+        if st.button("重置参数\n\r（D为3，A为3000）"):
             reset_params()
     with col2:
-        btn_label = "切换前台\n（当前：{}）".format(
+        btn_label = "切换前台\n\r（当前：{}）".format(
             "非夜魂" if st.session_state.no_nightsoul_signal == 1 else "夜魂"
         )
         if st.button(btn_label):
