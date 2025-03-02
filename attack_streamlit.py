@@ -9,7 +9,6 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-from functools import wraps
 
 # --------------------------
 # 全局状态管理系统
