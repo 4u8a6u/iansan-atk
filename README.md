@@ -10,4 +10,4 @@
 ``
 streamlit run attack_streamlit.py
 ``,
-默认访问本地8501端口 http://localhost:8501/\n\r
+默认访问本地8501端口 http://localhost:8501/
