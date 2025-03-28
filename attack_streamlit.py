@@ -104,7 +104,7 @@ def get_nightsoul(x, d):
                 # 前台夜魂变动增益（第1、4、7、10、13秒，其中第1秒为自身变动，已经计入）
                 if st.session_state.no_nightsoul_signal != 1:
                     if int_sec in [4, 7, 10, 13]:
-                        extra_gain += 4
+                        extra_gain += 3
                 current_value += extra_gain
                 
                 # 四命溢出处理（动态存储50%溢出量）
